@@ -11,7 +11,6 @@ export default function TimeAndLocation({ weatherData }) {
     weatherData?.current?.dt,
     weatherData?.current?.timezone
   );
-
   return (
     <div>
       <p className="text-center text-sm sm:text-lg font-extralight">
