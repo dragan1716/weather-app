@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 
-export default function VerticalMenu({ cities }) {
+export default function VerticalMenu({ cities, onSetCity }) {
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const trigger = useRef(null);
@@ -22,7 +22,6 @@ export default function VerticalMenu({ cities }) {
     return () => document.removeEventListener("click", clickHandler);
   });
 
-  // close if the esc key is pressed
   useEffect(() => {
     const keyHandler = ({ keyCode }) => {
       if (!dropdownOpen || keyCode !== 27) return;
@@ -33,14 +32,14 @@ export default function VerticalMenu({ cities }) {
   });
 
   return (
-    <section className="bg-gray-2 pb-20 dark:bg-dark md:hidden">
+    <section className="bg-gray-2 dark:bg-dark md:hidden">
       <div className="container">
         <div className="flex justify-center">
           <div className="relative inline-block">
             <button
               ref={trigger}
               onClick={() => setDropdownOpen(!dropdownOpen)}
-              className="mb-3.5 inline-flex h-12 items-center justify-center gap-2 rounded-lg  bg-white px-6 py-3 text-base font-medium text-dark dark:border-dark-3 dark:bg-dark-2 dark:text-white"
+              className="mb-3.5 text-black inline-flex h-12 items-center justify-center gap-2 rounded-lg  bg-white px-6 py-3 text-base font-medium text-dark dark:border-dark-3 dark:bg-dark-2 dark:text-white"
             >
               Top cities
               <span
@@ -64,13 +63,16 @@ export default function VerticalMenu({ cities }) {
               ref={dropdown}
               onFocus={() => setDropdownOpen(true)}
               onBlur={() => setDropdownOpen(false)}
-              className={`absolute right-0  top-full w-[240px] divide-y divide-stroke overflow-hidden rounded-lg bg-white dark:divide-dark-3 dark:bg-dark-2 ${
+              className={`absolute right-0 text-black  top-full w-[240px] divide-y divide-stroke overflow-hidden rounded-lg bg-white dark:divide-dark-3 dark:bg-dark-2 ${
                 dropdownOpen ? "block" : "hidden"
               }`}
             >
               {cities.map((city) => (
                 <div key={city.id} className="">
                   <a
+                    onClick={() => {
+                      onSetCity({ q: city.name });
+                    }}
                     href="#0"
                     className="flex w-full items-center justify-center px-4 py-2.5 text-sm font-medium text-dark hover:bg-gray-200 dark:text-white dark:hover:bg-white/5"
                   >
