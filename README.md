@@ -1,6 +1,6 @@
 # Weather App 🌦️
 A modern and responsive weather application built with **React**, utilizing **HTML**, **CSS**, and **JavaScript**, and styled with **Tailwind CSS**. The app fetches real-time weather data from the **OpenWeather API** and delivers an intuitive user experience across all devices. 
-## This is working version of app: https://gentle-stardust-acd732.netlify.app/
+## Live Demo: https://gentle-stardust-acd732.netlify.app/
 
 ## Features
 ### 🌐 Global and Local Weather Access
