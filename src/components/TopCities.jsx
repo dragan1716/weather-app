@@ -1,4 +1,6 @@
 export default function TopCities({ cities, onSetCity }) {
+  console.log(cities);
+
   return (
     <div className="hidden md:block">
       <div className="flex justify-center items-center text-white md:gap-4">
