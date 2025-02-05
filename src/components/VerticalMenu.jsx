@@ -6,7 +6,6 @@ export default function VerticalMenu({ cities, onSetCity }) {
   const trigger = useRef(null);
   const dropdown = useRef(null);
 
-  // close on click outside
   useEffect(() => {
     const clickHandler = ({ target }) => {
       if (!dropdown.current) return;
@@ -30,7 +29,6 @@ export default function VerticalMenu({ cities, onSetCity }) {
     document.addEventListener("keydown", keyHandler);
     return () => document.removeEventListener("keydown", keyHandler);
   });
-
   return (
     <section className="bg-gray-2 dark:bg-dark md:hidden">
       <div className="container">
