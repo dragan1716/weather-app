@@ -96,7 +96,6 @@ function App() {
         ? "from-orange-500 to-red-500"
         : "from-cyan-600 to-blue-700";
   }
-
   return (
     <div
       className={`container md:px-20 lg:px-50 p-2 h-full max-w-full mx-auto py-5 bg-gradient-to-r ${backgroundClass} `}
